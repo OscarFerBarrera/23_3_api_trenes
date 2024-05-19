@@ -74,16 +74,17 @@ export const userSeed = async (): Promise<void> => {
     users: [user1Entity, user2Entity],
   };
 
-  // Creamos entidad equipo
+  // Creamos entidad viajes
   const travelEntity1 = AppDataSource.manager.create(Travel, travel1);
   const travelEntity2 = AppDataSource.manager.create(Travel, travel2);
   const travelEntity3 = AppDataSource.manager.create(Travel, travel3);
-  // Guardamos el equipo en BBDD
+
+  // Guardamos los viajes en BBDD
   await AppDataSource.manager.save(travelEntity1);
   await AppDataSource.manager.save(travelEntity2);
   await AppDataSource.manager.save(travelEntity3);
 
-  console.log("Creados los usuarios");
+  console.log("Creados los usuarios y viajes");
 
   // Cerramos la conexión
   await AppDataSource.destroy();

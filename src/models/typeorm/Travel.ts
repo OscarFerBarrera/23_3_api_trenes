@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
 import { User } from "./User";
 
 @Entity()
@@ -19,11 +19,11 @@ export class Travel {
   arrivalCity: string;
 
   @Column()
-    price: string;
+    price: number;
 
   @Column()
     train: string;
 
-  @OneToMany(type => User, user => user.team, { cascade: true })
+  @ManyToOne(type => User, user => user.team, { cascade: true })
     users: User[];
 }

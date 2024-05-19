@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 import { Travel } from "./Travel";
 
 @Entity()
@@ -30,6 +30,6 @@ export class User {
   @Column()
     Treatment: string;
 
-  @ManyToOne(type => Travel, travel => travel.users)
+  @OneToMany(type => Travel, travel => travel.users)
   team: Travel;
 }
